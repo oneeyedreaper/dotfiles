@@ -104,7 +104,7 @@
 					"background": "#40c4ff",
 					"foreground": "#ffffff",
 					"properties": {
-						"prefix": "  ",
+						 "prefix": " \udb80\udcf0 ",
 						"postfix": " "
 					}
 				}
