@@ -1,6 +1,6 @@
 # ===== WINFETCH CONFIGURATION =====
 
-# $image = "C:\Users\paras\Downloads\download_2.png"
+ $image = "C:\Users\paras\Downloads\download_2.png"
  
 # $noimage = $true
 
@@ -15,7 +15,7 @@
 
 
 # Specify width for image/logo
-# $imgwidth = 42 
+ $imgwidth = 42 
 
 # Make the logo blink
  $blink = $true
