@@ -4,6 +4,7 @@ Import-Module terminal-icons
 
 #Alias
 Set-Alias vim nvim
+#Set-Alias ubuntu C:\WINDOWS\system32\wsl.exe -u paras
 #Set-Alias .. cd..
 Set-Alias g git
 Set-Alias ff fuck
@@ -17,14 +18,16 @@ Set-Alias nano 'C:\Program Files\Git\usr\bin\nano.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias restart Restart-Computer
 Set-Alias shutdown Shutdown
-
+Set-Alias tsconfig ts-config
 
 # Utilities
 function which ($command) {
   Get-Command -Name $command -ErrorAction SilentlyContinue |
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
-
+function ts-config($args){
+ C:\"Program Files"\nodejs\tsconfig.json.cmd 
+}
 # Shows navigable menu of all options when hitting Tab
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
  Set-PSReadLineOption -PredictionViewStyle ListView
@@ -40,6 +43,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 # Load Prompt config
 $omp_config = "C:\Users\paras\.config\powershell\paras.omp.json"
+#$omp_config = Join-Path $PSScriptRoot ".\paras.omp.json"
 $omp_jane_config =  "C:\Users\paras\OneDrive\Documents\PowerShell\Modules\oh-my-posh/themes/jandedobbeleer.omp.json"
 oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
 
@@ -93,13 +97,17 @@ function touch {
 }
 
 # Search end task
-function taskx{
+function plskill{
  taskkill /f /im ($args[0]+".exe")
 }
 
 # Create Folder
 function nfd{
 	New-Item -ItemType Directory -Name ($args[0])
+}
+# Create Folder and cd into it
+function nfc{
+	New-Item -ItemType Directory -Name ($args[0]) && cd ($args[0])
 }
 #Sleep
 function slep{
@@ -144,4 +152,9 @@ function UbuntuVM {
 function lsVMS {C:\'Program Files'\Oracle\VirtualBox\VBoxManage.exe list vms}
 function lsrVMS {C:\'Program Files'\Oracle\VirtualBox\VBoxManage.exe list runningvms}
 
+
+#f45873b3-b655-43a6-b217-97c00aa0db58 PowerToys CommandNotFound module
+
+Import-Module -Name Microsoft.WinGet.CommandNotFound
+#f45873b3-b655-43a6-b217-97c00aa0db58
 
